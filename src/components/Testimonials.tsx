@@ -80,14 +80,15 @@ export default function Testimonials() {
       className="relative overflow-hidden bg-white px-4 py-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 text-center">
+        <div className="mb-6 text-center">
           <h2 className="mt-2 text-3xl md:text-4xl lg:text-5xl font-serif font-extrabold tracking-tight text-[#026fc5] leading-tight">
-            What Client Say About us
+            What Clients Say About Us
           </h2>
         </div>
 
-        <div className="relative mx-auto h-[350px] max-w-5xl md:h-[420px]">
-          <Plane className="absolute left-4 top-12 z-20 h-12 w-12 -rotate-12 text-[#20b7dd] opacity-80" />
+        {/* Map Container */}
+        <div className="relative mx-auto h-[220px] max-w-4xl md:h-[320px] overflow-hidden">
+          <Plane className="absolute left-4 top-12 z-20 h-8 w-8 -rotate-12 text-[#20b7dd] opacity-80" />
 
           {/* Dotted World Map */}
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -131,57 +132,61 @@ export default function Testimonials() {
               key={item.name}
               className="absolute z-30 -translate-x-1/2 -translate-y-1/2"
               style={{ left: item.left, top: item.top }}
-              onMouseEnter={() => setActive(item)}
-              onClick={() => setActive(item)}
             >
-              {active?.name === item.name && (
-                <div className="absolute bottom-[86px] left-1/2 z-40 w-[300px] -translate-x-1/2 rounded-2xl border border-[#20b7dd] bg-white px-5 py-5 text-center shadow-xl md:w-[420px]">
-                  <p className="text-sm font-medium leading-7 text-black md:text-base">
-                    “{item.quote}”
-                  </p>
-
-                  <div className="mt-4 flex justify-center gap-1">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star
-                        key={index}
-                        className={`h-4 w-4 ${index < item.rating
-                          ? "fill-orange-400 text-orange-400"
-                          : "fill-gray-200 text-gray-200"
-                          }`}
-                      />
-                    ))}
-                  </div>
-
-                  <div className="absolute -bottom-3 left-1/2 h-6 w-6 -translate-x-1/2 rotate-45 border-b border-r border-[#20b7dd] bg-white" />
-                </div>
-              )}
-
               <button
                 type="button"
-                className={`relative rounded-full bg-white p-1 shadow-lg transition-all duration-300 ${active?.name === item.name
-                  ? "scale-125 ring-2 ring-[#20b7dd]"
-                  : "hover:scale-125 hover:ring-2 hover:ring-[#20b7dd]"
-                  }`}
+                onMouseEnter={() => setActive(item)}
+                onClick={() => setActive(item)}
+                className={`relative rounded-full bg-white p-0.5 shadow-md transition-all duration-300 cursor-pointer ${
+                  active?.name === item.name
+                    ? "scale-115 ring-2 ring-[#026fc5]"
+                    : "hover:scale-115 hover:ring-2 hover:ring-[#026fc5]"
+                }`}
               >
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="h-12 w-12 rounded-full object-cover md:h-14 md:w-14"
+                  className="h-8 w-8 md:h-10 md:w-10 rounded-full object-cover"
                 />
-                <span className="absolute -right-1 top-0 h-4 w-4 rounded-full border-2 border-white bg-[#20b7dd]" />
+                <span className="absolute -right-0.5 top-0 h-2.5 w-2.5 rounded-full border border-white bg-[#026fc5]" />
               </button>
-
-              {active?.name === item.name && (
-                <div className="absolute left-1/2 top-[76px] w-[190px] -translate-x-1/2 text-center">
-                  <h3 className="text-xl font-bold text-[#0d4b5a]">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-gray-500">{item.role}</p>
-                </div>
-              )}
             </div>
           ))}
         </div>
+
+        {/* Active Testimonial Card */}
+        {active && (
+          <div className="mx-auto mt-4 max-w-xl rounded-3xl border border-slate-100 bg-slate-50 p-6 md:p-8 text-center shadow-md relative animate-in fade-in slide-in-from-bottom-2 duration-300">
+            {/* Quote decoration */}
+            <div className="absolute top-2 left-6 text-slate-200/80 text-7xl font-serif leading-none select-none pointer-events-none">
+              “
+            </div>
+
+            <p className="relative z-10 text-xs md:text-sm font-medium leading-relaxed text-slate-700">
+              “{active.quote}”
+            </p>
+
+            <div className="mt-4 flex justify-center gap-1">
+              {Array.from({ length: 5 }).map((_, index) => (
+                <Star
+                  key={index}
+                  className={`h-3.5 w-3.5 ${
+                    index < active.rating
+                      ? "fill-[#ffbd2e] text-[#ffbd2e]"
+                      : "fill-gray-200 text-gray-200"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <div className="mt-4">
+              <h3 className="text-sm font-black text-[#073f70]">
+                {active.name}
+              </h3>
+              <p className="text-[10px] text-gray-400 mt-0.5">{active.role}</p>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
