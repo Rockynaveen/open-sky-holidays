@@ -424,7 +424,7 @@ export default function TravelPackagesSection() {
           </div>
 
           <a
-            href="/contact"
+            href="#contact"
             className="group inline-flex w-fit items-center gap-2 rounded-full bg-[#ffbd2e] px-6 py-3.5 text-sm font-bold text-[#0c406d] transition duration-300 hover:bg-white"
           >
             Get Custom Package

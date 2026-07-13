@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
-import { Button } from './ui/button'
 
 const HERO_SLIDES = [
   {
@@ -94,12 +93,18 @@ export default function Hero() {
             {HERO_SLIDES[currentSlide].desc}
           </p>
           <div className="flex flex-wrap gap-4 pl-1">
-            <Button asChild className="bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-full py-6 px-8 text-sm md:text-base tracking-wide transition-all shadow-lg shadow-brand-600/30 hover:scale-105">
-              <a href="#explore-india">Explore Tours</a>
-            </Button>
-            <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white hover:text-brand-950 font-medium rounded-full py-6 px-8 text-sm md:text-base tracking-wide backdrop-blur-sm transition-all hover:scale-105">
-              <a href="#services">Our Services</a>
-            </Button>
+            <a
+              href="#explore-india"
+              className="bg-[#026fc5] hover:bg-[#073f70] text-white font-bold rounded-full py-3.5 px-8 text-sm md:text-base tracking-wide transition-all shadow-lg shadow-brand-600/30 hover:scale-105 flex items-center justify-center"
+            >
+              Explore Tours
+            </a>
+            <a
+              href="#services"
+              className="border-2 border-white/30 text-white hover:bg-white hover:text-brand-950 font-bold rounded-full py-3.5 px-8 text-sm md:text-base tracking-wide backdrop-blur-sm transition-all hover:scale-105 flex items-center justify-center"
+            >
+              Our Services
+            </a>
           </div>
         </div>
       </div>
