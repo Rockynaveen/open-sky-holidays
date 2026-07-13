@@ -61,7 +61,7 @@ const DOMESTIC_SLIDER = [
 
 export default function DomesticTours() {
     return (
-        <section className="w-full bg-white py-8">
+        <section id="explore-india" className="w-full bg-white py-8">
             <div className="mx-auto max-w-7xl px-4">
                 <div className="mb-10 flex items-center gap-4">
                     <div className="h-px flex-1 bg-[#026fc5]" />

@@ -30,7 +30,7 @@ export default function Gallery() {
 
   return (
     <>
-      <section className="bg-white py-8 px-4">
+      <section id="gallery" className="bg-white py-8 px-4">
         <div className="max-w-7xl mx-auto px-4">
 
           {/* Heading */}

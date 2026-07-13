@@ -58,7 +58,7 @@ const GUIDES_DATA = [
 
 export default function Guides() {
   return (
-    <section className="relative overflow-hidden bg-[#eefdff] px-4 py-8">
+    <section id="guides" className="relative overflow-hidden bg-[#eefdff] px-4 py-8">
       {/* background pattern */}
       <div className="absolute inset-0 opacity-25">
         <div className="h-full w-full bg-[radial-gradient(circle,#20a9c9_1px,transparent_1px)] bg-[length:28px_28px]" />

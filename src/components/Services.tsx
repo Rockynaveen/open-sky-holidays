@@ -20,7 +20,7 @@ const SERVICES_DATA = [
 
 export default function Services() {
   return (
-    <section className="bg-[#f8fbfc] py-8 px-4">
+    <section id="services" className="bg-[#f8fbfc] py-8 px-4">
       <div className="mx-auto max-w-7xl px-4">
         {/* Header */}
         <div className="mb-12 text-center">
